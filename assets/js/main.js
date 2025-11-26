@@ -5,6 +5,8 @@ const avatarUrl = "https://sea1.discourse-cdn.com/freecodecamp";
 
 const postsContainer = document.getElementById("posts-container");
 
+
+
 const fetchData = async () => {
   try {
     const res = await fetch(forumLatest);
@@ -28,19 +30,18 @@ const showLatestPosts = (data) => {
       views,
       posts_count,
       slug,
-      posters,
-      category_id,
+      posters, _id,
       bumped_at,
     } = item;
 
     return `
     <tr>
       <td>
-      <p class="post-title">${title}</p>
+        <p class="post-title">${title}</p>
       </td>
       <td></td>
-      <td></td>
-      <td></td>
+      <td>${posts_count - 1}</td>
+      <td>${views}</td>
       <td></td>
     </tr>`;
   }).join("");
